@@ -33,14 +33,14 @@
   <!-- ... existing HTML content ... -->
 
   <!-- Register Service Worker -->
-  <script>
-    if ('serviceWorker' in navigator) {
-      window.addEventListener('load', function() {
-        navigator.serviceWorker.register('service-worker.js')
-          .then(reg => console.log('ServiceWorker registered with scope:', reg.scope))
-          .catch(err => console.log('ServiceWorker registration failed:', err));
-      });
-    }
-  </script>
+ <script>
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('service-worker.js')
+  .then(() => console.log('Service Worker Registered'))
+  .catch(err => console.log('SW Error:', err));
+}
+</script>
+
 </body>
 </html>
+
