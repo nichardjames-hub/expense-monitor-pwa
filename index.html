@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Expense Monitor</title>
+
+  <!-- PWA / iOS meta -->
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#3498db">
+  <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="Expense Monitor">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+
+  <style>
+    /* your existing styles — example: */
+    body { margin:0; font-family:Arial, sans-serif;
+      /* default background: Montero car image (you can swap to house URL) */
+      background: url("https://d1hv7ee95zft1i.cloudfront.net/custom/car-model-color-photo/gallery/mitsubishi-montero-sport-graphite-gray-metallic-philippines-66bc36041463c.jpg") no-repeat center center fixed;
+      background-size: cover;
+      color:#333;
+      position: relative;
+    }
+    body::before{ content:""; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(255,255,255,0.72); z-index:-1; }
+    /* rest of your CSS */
+    .container {max-width:1100px;margin:0 auto;padding:20px;}
+    /* ... keep the rest of your existing CSS rules ... */
+  </style>
+</head>
+<body>
+  <!-- Paste your full app HTML UI here (cards, inputs, tables) -->
+  <!-- ... existing HTML content ... -->
+
+  <!-- Register Service Worker -->
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', function() {
+        navigator.serviceWorker.register('service-worker.js')
+          .then(reg => console.log('ServiceWorker registered with scope:', reg.scope))
+          .catch(err => console.log('ServiceWorker registration failed:', err));
+      });
+    }
+  </script>
+</body>
+</html>
